@@ -1,0 +1,133 @@
+{
+  "screenshots": [
+    "01_desktop_homepage.png",
+    "02_desktop_navbar.png",
+    "03_mobile_homepage.png",
+    "04_mobile_navbar.png",
+    "05_desktop_marketplace.png",
+    "06_mobile_marketplace.png",
+    "07_marketplace_action_new_unauth.png",
+    "08_marketplace_action_new_authenticated_seller_form.png",
+    "09_static_portal_community_marketplace.png",
+    "10_homepage_multilingual_en.png"
+  ],
+  "tests": [
+    {
+      "test": "Desktop Navigation 4 Core Actions",
+      "passed": true,
+      "details": [
+        {
+          "text": "🔍 Search services",
+          "href": "/marketplace"
+        },
+        {
+          "text": "➕ Offer a service",
+          "href": "/marketplace?action=new"
+        },
+        {
+          "text": "🪐 Metaverse",
+          "href": ""
+        },
+        {
+          "text": "👤 Sign in / Profile",
+          "href": "/social-login"
+        }
+      ]
+    },
+    {
+      "test": "Click \"Cerca servizi\" navigates to /marketplace",
+      "passed": false,
+      "url": "http://localhost:3589/"
+    },
+    {
+      "test": "Unauthenticated /marketplace?action=new shows login requirement with returnTo",
+      "passed": true,
+      "details": {
+        "hasLoginText": true,
+        "loginLinkHref": "/social-login?returnTo=%2Fmarketplace%3Faction%3Dnew"
+      }
+    },
+    {
+      "test": "Authenticated /marketplace?action=new automatically opens publishing form",
+      "passed": true,
+      "details": {
+        "hasForm": true,
+        "inputsCount": 7,
+        "hasSellerStatus": false
+      }
+    },
+    {
+      "test": "Static Portal Nav Synchronization (4 Actions)",
+      "passed": true,
+      "details": [
+        {
+          "text": "🔍 Cerca servizi",
+          "href": "#market-listings"
+        },
+        {
+          "text": "➕ Offri un servizio",
+          "href": "/marketplace?action=new"
+        },
+        {
+          "text": "🪐 Metaverso",
+          "href": "/metaverse"
+        },
+        {
+          "text": "👤 Accedi / Profilo",
+          "href": "#account"
+        }
+      ]
+    },
+    {
+      "test": "5 Languages Navigation & Hero localization (IT, EN, ES, FR, DE)",
+      "passed": true,
+      "details": {
+        "it": {
+          "navTexts": [
+            "🔍 Cerca servizi",
+            "➕ Offri un servizio",
+            "🪐 Metaverso",
+            "👤 @testuser"
+          ],
+          "heroTitle": "Trova o offri servizi e competenze nella tua comunità"
+        },
+        "en": {
+          "navTexts": [
+            "🔍 Search services",
+            "➕ Offer a service",
+            "🪐 Metaverse",
+            "👤 @testuser"
+          ],
+          "heroTitle": "Find or offer services and skills in your community"
+        },
+        "es": {
+          "navTexts": [
+            "🔍 Buscar servicios",
+            "➕ Ofrecer un servicio",
+            "🪐 Metaverso",
+            "👤 @testuser"
+          ],
+          "heroTitle": "Encuentra u ofrece servicios y habilidades en tu comunidad"
+        },
+        "fr": {
+          "navTexts": [
+            "🔍 Chercher des services",
+            "➕ Proposer un service",
+            "🪐 Métavers",
+            "👤 @testuser"
+          ],
+          "heroTitle": "Trouvez ou proposez des services et compétences dans votre communauté"
+        },
+        "de": {
+          "navTexts": [
+            "🔍 Dienstleistungen suchen",
+            "➕ Dienstleistung anbieten",
+            "🪐 Metaversum",
+            "👤 @testuser"
+          ],
+          "heroTitle": "Finde oder biete Dienstleistungen und Fähigkeiten in deiner Community an"
+        }
+      }
+    }
+  ]
+}
